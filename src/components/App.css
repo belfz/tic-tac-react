@@ -1,0 +1,52 @@
+.app {
+  font-family: Courier New, Courier, monospace;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.symbol {
+  background-color: white;
+  border: 1px solid black;
+  height: 60px;
+  margin: 1px;
+  transition: background-color .5s ease;
+  width: 60px;
+}
+
+.board.won-row0 .row0 .symbol,
+.board.won-row1 .row1 .symbol,
+.board.won-row2 .row2 .symbol,
+.board.won-column0 .symbol.column0,
+.board.won-column1 .symbol.column1,
+.board.won-column2 .symbol.column2,
+.board.won-leftSlant .row0 .symbol.column0,
+.board.won-leftSlant .row1 .symbol.column1,
+.board.won-leftSlant .row2 .symbol.column2,
+.board.won-rightSlant .row0 .symbol.column2,
+.board.won-rightSlant .row1 .symbol.column1,
+.board.won-rightSlant .row2 .symbol.column0 {
+  background-color: cornflowerblue;
+}
+
+.board.draw .symbol {
+  background-color: palevioletred;
+}
+
+.row {
+  display: flex;
+}
+
+
+@keyframes symbol-appear {
+  from {
+    transform: scale(1.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+svg {
+  animation-name: symbol-appear;
+  animation-duration: .15s;
+}
