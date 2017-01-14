@@ -2,8 +2,10 @@
   "name": "tic-tac-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://belfz.github.io/tic-tac-react",
   "devDependencies": {
     "enzyme": "^2.7.0",
+    "gh-pages": "^0.12.0",
     "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.8.4"
   },
@@ -17,6 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "npm run build&&gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
