@@ -1,8 +1,13 @@
 language: node_js
 node_js:
-  - "6.2.2"
+- 6.2.2
 before_script:
-  - git config --global user.email "marcinbar1@gmail.com"
-  - git config --global user.name "belfz"
+- git config --global user.email "marcinbar1@gmail.com"
+- git config --global user.name "belfz"
+- git remote rm origin
+- git remote add origin https://user:${GH_TOKEN}@github.com/belfz/tic-tac-react.git
 after_success:
-  - npm run deploy
+- npm run deploy
+env:
+  global:
+    secure: LEgabKoDNd/LklOyTSwNpnS58uMMLFCF808dpaf1csUmSGsUIBxOXY8OT36ZTVH5dLI3LLTiUT+6rgZY/FqlmVgnL1m6f5GKyh1V6g2AWEOB1OJ0rVyzcpgbsB5G5zsBmfMUXr4LKbdnI05WtPH9i1lgUFk1D54v0+xFAnwGgkVkgufyLwI0ZQg590sKfnW3nOGMOfB6yhDnUALsJ0IdphxJGGGE8FGx/O3C2ecR593PfQYiGjj+DNBwcqC5zmt2JMSzxmVVuuloCF5GhvRoV7wZ/tmRzK3Rzz3cSbQ+TVpS78QOoijWaDp75fEVp2qE7jxqLGGRLAGAjm+urMc+0JJK9TKf1kGsNR94ll1ZqflomZJy5sDP+MvKHlMx8a3ZswfEVqOA5CHXCzrml2Ki+B2yHw97qU3mxMfT+LA+tWFxZzNz2sytDMzhtSoUlAzHCLL/ci5I0tDhkf7f7zMMwF6dmM4ZUBKVd9VtwKuZ/necX1r+F8L3ger7mTPfpzHJUfzUSfELECQwUfOgWHhR8OSTrPRV5z7jt/vvtsBm+/Qj8h9ryumvMDpkkxHpXJrMq0gtLK1z4rxigUCRUkxzE+0QNkaGSPTpYJHInozxNA+9qjJwaUyZU7rrAwNu5GVDaiZVHkHjLjtH5/YuvFwNvs5iFwRpHBrRd8g7euz6x+k=
