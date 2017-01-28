@@ -25,7 +25,7 @@
 .board.won-rightSlant .row0 .symbol.column2,
 .board.won-rightSlant .row1 .symbol.column1,
 .board.won-rightSlant .row2 .symbol.column0 {
-  background-color: cornflowerblue;
+  background-color: mediumseagreen;
 }
 
 .board.draw .symbol {
