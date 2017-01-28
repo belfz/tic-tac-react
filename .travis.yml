@@ -1,5 +1,8 @@
 language: node_js
 node_js:
   - "6.2.2"
+before_script:
+  - git config --global user.email "marcinbar1@gmail.com"
+  - git config --global user.name "belfz"
 after_success:
   - npm run deploy
