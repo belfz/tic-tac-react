@@ -22,6 +22,12 @@ class Result extends Component {
   }
 }
 
+Result.propTypes = {
+  won: React.PropTypes.string,
+  turn: React.PropTypes.string.isRequired,
+  draw: React.PropTypes.bool.isRequired
+};
+
 export default connect(
   ({won, turn, draw}) => ({
     won, turn, draw

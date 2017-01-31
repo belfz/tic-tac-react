@@ -52,6 +52,16 @@ class Board extends Component {
   }
 }
 
+Board.propTypes = {
+  board: React.PropTypes.object.isRequired,
+  turn: React.PropTypes.string.isRequired,
+  won: React.PropTypes.string,
+  draw: React.PropTypes.bool.isRequired,
+  wonLine: React.PropTypes.string,
+  addSymbol: React.PropTypes.func.isRequired,
+  startAgain: React.PropTypes.func.isRequired
+};
+
 export default connect(
   ({board, turn, won, draw, wonLine}) => ({
     board, turn, won, draw, wonLine

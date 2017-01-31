@@ -10,4 +10,8 @@ const OSymbol = (props) => {
   );
 };
 
+OSymbol.propTypes = {
+  position: React.PropTypes.number.isRequired
+};
+
 export default OSymbol;

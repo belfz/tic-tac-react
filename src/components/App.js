@@ -3,7 +3,7 @@ import Board from './Board';
 import Result from './Result';
 import './App.css';
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="app">
       <Result />

@@ -13,30 +13,39 @@ const board = {
   };
 
 it('Should render Board with symbols', () => {
-  const wrapper = shallow(<Board board={board} />);
+  const startAgain = jest.fn();
+  const addSymbol = jest.fn();
+  const wrapper = shallow(<Board board={board} startAgain={startAgain} addSymbol={addSymbol} draw={false} turn={X} />);
   expect(wrapper.find(XSymbol).length).toBe(4);
   expect(wrapper.find(OSymbol).length).toBe(3);
   expect(wrapper.find(BlankSymbol).length).toBe(2);
 });
 
 it('Should not display a "start again" text when neither won and there was no draw', () => {
-  const wrapper = shallow(<Board board={board} />);
+  const startAgain = jest.fn();
+  const addSymbol = jest.fn();
+  const wrapper = shallow(<Board board={board} startAgain={startAgain} addSymbol={addSymbol} draw={false} turn={X} />);
   expect(wrapper.find('p.startAgain').length).toBe(0);
 });
 
 it('Should display a "start again" text when one symbol won', () => {
-  const wrapper = shallow(<Board board={board} won={X} />);
+  const startAgain = jest.fn();
+  const addSymbol = jest.fn();
+  const wrapper = shallow(<Board board={board} won={X} startAgain={startAgain} addSymbol={addSymbol} draw={false} turn={X} />);
   expect(wrapper.find('p.startAgain').length).toBe(1);
 });
 
 it('Should display a "start again" text when there was a draw', () => {
-  const wrapper = shallow(<Board board={board} draw={true} />);
+  const startAgain = jest.fn();
+  const addSymbol = jest.fn();
+  const wrapper = shallow(<Board board={board} draw={true} startAgain={startAgain} addSymbol={addSymbol} turn={X} />);
   expect(wrapper.find('p.startAgain').length).toBe(1);
 });
 
 it('Should call a passed callback when clicked upon the "start again"', () => {
   const startAgain = jest.fn();
-  const wrapper = shallow(<Board board={board} won={X} startAgain={startAgain} />);
+  const addSymbol = jest.fn();
+  const wrapper = shallow(<Board board={board} won={X} startAgain={startAgain} addSymbol={addSymbol} draw={false} turn={X} />);
   wrapper.find('p.startAgain').simulate('click');
   expect(startAgain.mock.calls.length).toBe(1);
 });

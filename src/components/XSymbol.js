@@ -11,4 +11,8 @@ const XSymbol = (props) => {
   );
 };
 
+XSymbol.propTypes = {
+  position: React.PropTypes.number.isRequired
+};
+
 export default XSymbol;
