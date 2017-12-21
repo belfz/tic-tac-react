@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 class Result extends Component {
@@ -23,9 +24,9 @@ class Result extends Component {
 }
 
 Result.propTypes = {
-  won: React.PropTypes.string,
-  turn: React.PropTypes.string.isRequired,
-  draw: React.PropTypes.bool.isRequired
+  won: PropTypes.string,
+  turn: PropTypes.string.isRequired,
+  draw: PropTypes.bool.isRequired
 };
 
 export default connect(

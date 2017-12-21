@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import BlankSymbol from './BlankSymbol';
 import XSymbol from './XSymbol';
 import OSymbol from './OSymbol';
@@ -53,13 +54,13 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-  board: React.PropTypes.object.isRequired,
-  turn: React.PropTypes.string.isRequired,
-  won: React.PropTypes.string,
-  draw: React.PropTypes.bool.isRequired,
-  wonLine: React.PropTypes.string,
-  addSymbol: React.PropTypes.func.isRequired,
-  startAgain: React.PropTypes.func.isRequired
+  board: PropTypes.object.isRequired,
+  turn: PropTypes.string.isRequired,
+  won: PropTypes.string,
+  draw: PropTypes.bool.isRequired,
+  wonLine: PropTypes.string,
+  addSymbol: PropTypes.func.isRequired,
+  startAgain: PropTypes.func.isRequired
 };
 
 export default connect(

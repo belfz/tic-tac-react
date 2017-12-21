@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const XSymbol = (props) => {
   return (
@@ -12,7 +13,7 @@ const XSymbol = (props) => {
 };
 
 XSymbol.propTypes = {
-  position: React.PropTypes.number.isRequired
+  position: PropTypes.number.isRequired
 };
 
 export default XSymbol;

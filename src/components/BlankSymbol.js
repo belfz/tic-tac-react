@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BlankSymbol = (props) => {
   return (
@@ -8,7 +9,7 @@ const BlankSymbol = (props) => {
 };
 
 BlankSymbol.propTypes = {
-  addSymbol: React.PropTypes.func.isRequired
+  addSymbol: PropTypes.func.isRequired
 };
 
 export default BlankSymbol;
