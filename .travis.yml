@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- 6.2.2
+- 8.9.1
 before_script:
 - git config --global user.email "marcinbar1@gmail.com"
 - git config --global user.name "belfz"
