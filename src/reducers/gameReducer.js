@@ -16,7 +16,7 @@ export const initialState = {
 
 export const gameReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_SYMBOL':
+    case 'ADD_SYMBOL':{
       const {symbol, row, position} = action;
       const newState = _.cloneDeep(state);
       newState.board[row][position] = symbol;
@@ -51,6 +51,7 @@ export const gameReducer = (state, action) => {
       }
 
       return newState;
+    }
     case 'START_AGAIN':
       return initialState;
     default:
