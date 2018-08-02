@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from './Board';
+import Leaderboard from './Leaderboard';
 import Result from './Result';
 import PlayerForm from './PlayerForm';
 import styled from 'styled-components';
@@ -24,6 +25,7 @@ const App = ({className}) => {
         <Result />
         <Board />
       </BoardWrap>
+      <Leaderboard />
     </AppWrap>
   );
 }
