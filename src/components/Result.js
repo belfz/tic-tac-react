@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 class Result extends Component {
+  getPlayerName = (player) => {
+    const letter = player.toUpperCase();
+    return this.props[`player${letter}`] || letter;
+  }
+
   render () {
-    let result = ''; 
+    let result = '';
     if (this.props.turn) {
-      result = `It's ${this.props.turn.toUpperCase()}'s turn.`;
+      result = `It's ${this.getPlayerName(this.props.turn)}'s turn.`;
     }
     if (this.props.won) {
-      result = `Yay! ${this.props.won.toUpperCase()} won!`
+      result = `Yay! ${this.getPlayerName(this.props.won)} won!`
     } else if (this.props.draw) {
       result = 'We have a draw!';
     }
@@ -24,14 +29,16 @@ class Result extends Component {
 }
 
 Result.propTypes = {
+  playerX: PropTypes.string,
+  playerO: PropTypes.string,
   won: PropTypes.string,
   turn: PropTypes.string.isRequired,
   draw: PropTypes.bool.isRequired
 };
 
 export default connect(
-  ({won, turn, draw}) => ({
-    won, turn, draw
+  ({won, turn, draw, playerX, playerO}) => ({
+    won, turn, draw, playerX, playerO
   })
 )(Result);
 

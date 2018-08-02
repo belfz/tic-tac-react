@@ -8,3 +8,9 @@ export const addSymbol = (row, position, symbol) => ({
 export const startAgain = () => ({
   type: 'START_AGAIN'
 });
+
+export const beginGame = (playerX, playerO) => ({
+  type: 'BEGIN_GAME',
+  playerX,
+  playerO,
+});

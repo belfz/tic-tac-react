@@ -1,20 +1,31 @@
 import React from 'react';
 import Board from './Board';
 import Result from './Result';
+import PlayerForm from './PlayerForm';
 import styled from 'styled-components';
 import './App.css';
 
+const AppWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  font-family: Courier New, Courier, monospace;
+`;
+const BoardWrap = styled.main`
+  margin: 0 auto;
+  flex: 0 0 auto;
+  min-width: 200px;
+`;
 const App = ({className}) => {
   return (
-    <div className={className}>
-      <Result />
-      <Board />
-    </div>
+    <AppWrap>
+      <PlayerForm />
+      <BoardWrap className={className}>
+        <Result />
+        <Board />
+      </BoardWrap>
+    </AppWrap>
   );
 }
 
-export default styled(App)`
-  font-family: Courier New, Courier, monospace;
-  margin: 0 auto;
-  width: 200px;
-`;
+export default App;

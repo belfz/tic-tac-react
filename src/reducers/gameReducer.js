@@ -11,7 +11,10 @@ export const initialState = {
   won: undefined,
   wonLine: undefined,
   draw: false,
-  turn: O
+  turn: O,
+  playerX: '',
+  playerO: '',
+  pristine: true,
 };
 
 export const gameReducer = (state, action) => {
@@ -49,11 +52,18 @@ export const gameReducer = (state, action) => {
       if (boardIsFull && !newState.won) {
         newState.draw = true;
       }
-
+      newState.pristine = false;
       return newState;
     }
     case 'START_AGAIN':
       return initialState;
+
+    case 'BEGIN_GAME': {
+      const newState = _.cloneDeep(initialState);
+      newState.playerX = action.playerX;
+      newState.playerO = action.playerO;
+      return newState;
+    }
     default:
       return state;
   }
