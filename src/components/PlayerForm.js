@@ -35,17 +35,19 @@ class PlayerForm extends React.Component {
     this.state = {
       playerX: '',
       playerO: '',
+      errorText: '',
     };
   }
   handleChange = (event, value) => {
-    console.log(event.target.name, event.target.value);
     this.setState({[event.target.name]: event.target.value});
   }
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateNames()) {
       this.props.beginGame(this.state.playerX, this.state.playerO);
-      this.setState({playerX: '', playerO: ''}, console.log);
+      this.setState({playerX: '', playerO: '', errorText: ''});
+    } else {
+      this.displayError('Please enter two player names.');
     }
   }
   validateNames = () => {
@@ -53,6 +55,12 @@ class PlayerForm extends React.Component {
       && this.state.playerO && this.state.playerO.length > 0
       && this.state.playerO !== this.state.playerX;
   }
+  displayError = (msg) =>{
+    // this is kludgy, but better than nothing? I think?
+    this.setState({errorText: msg});
+    setTimeout(() => this.setState({errorText: null}), 6000);
+  }
+
   render() {
     return (
       <StyledForm onSubmit={this.handleSubmit} show={this.props.pristine}>
@@ -64,6 +72,7 @@ class PlayerForm extends React.Component {
           <StyledSpan>Player O: </StyledSpan>
           <StyledInput value={this.state.playerO} name="playerO" onChange={this.handleChange}/>
         </StyledLabel>
+        {this.state.errorText ? <small style={{color: 'red'}}>{this.state.errorText}</small> : <small>&nbsp;</small>}
         <button type="submit">Submit</button>
       </StyledForm>
     );
