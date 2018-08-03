@@ -15,6 +15,7 @@ export const initialState = {
   playerX: '',
   playerO: '',
   pristine: true,
+  outcomes: [],
 };
 
 export const gameReducer = (state, action) => {
@@ -63,6 +64,20 @@ export const gameReducer = (state, action) => {
       newState.playerX = action.playerX;
       newState.playerO = action.playerO;
       return newState;
+    }
+    case 'GET_LEADERBOARD': {
+      return state;
+    }
+    case 'RECEIVE_LEADERBOARD': {
+      const newState = _.cloneDeep(state);
+      newState.outcomes = action.data;
+      return newState;
+    }
+    case 'DELETE_LEADERBOARD': {
+      return state;
+    }
+    case 'ADD_OUTCOME': {
+      return state;
     }
     default:
       return state;
