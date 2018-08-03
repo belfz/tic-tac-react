@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { beginGame } from '../actions/actions';
 
 const StyledForm = styled.form`
   min-width: 280px;
+  width: 30vw;
   padding: 2rem;
+  margin: 2rem;
   display: flex;
   flex-direction: column;
+  border: 1px solid ghostwhite;
   visibility: ${props => props.show ? 'visible' : 'hidden'};
 `;
 const StyledLabel = styled.label`
@@ -38,7 +41,7 @@ class PlayerForm extends React.Component {
       errorText: '',
     };
   }
-  handleChange = (event, value) => {
+  handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value});
   }
   handleSubmit = (event) => {

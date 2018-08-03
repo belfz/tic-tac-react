@@ -6,12 +6,13 @@ import { getLeaderboard } from '../actions/actions';
 
 export const LeaderWrap = styled.div`
   flex: 0 1 auto;
-  width: 280px;
+  width: 30vw;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   margin: 2rem;
-  padding: 1rem;
+  padding: 0 2rem 1rem;
   border: 1px solid ghostwhite;
 `;
 class Leaderboard extends React.Component {

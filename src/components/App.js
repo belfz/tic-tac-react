@@ -1,14 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import Board from './Board';
 import Leaderboard from './Leaderboard';
 import Result from './Result';
 import PlayerForm from './PlayerForm';
-import styled from 'styled-components';
 import './App.css';
 
 const AppWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   width: 100vw;
   font-family: Courier New, Courier, monospace;
 `;
