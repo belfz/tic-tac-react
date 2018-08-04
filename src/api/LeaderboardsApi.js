@@ -24,6 +24,14 @@ class LeaderboardsApi {
     }
     return axios.post(this.baseUrl, outcome);
   }
+
+  deleteAllOutcomes = (posts) => {
+    // get all entries to iterate over results
+    return Promise.all( posts.map ( post =>
+      axios.delete(`${this.baseUrl}/${post.id}`)
+    ));
+  }
+
 }
 
 export default LeaderboardsApi;

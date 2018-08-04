@@ -47,9 +47,9 @@ class Board extends Component {
         }
         {
           this.props.won || this.props.draw ?
-          <p className="startAgain" onClick={this.recordAndStartAgain}>
+          <button className="startAgain" onClick={this.recordAndStartAgain}>
             Click to start again!
-          </p> : false
+          </button> : false
         }
       </div>
     );
