@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import BlankSymbol from './BlankSymbol';
 import XSymbol from './XSymbol';
 import OSymbol from './OSymbol';
+import {StyledButton} from './StyledButton';
 import { X, O } from '../symbols/symbols';
 import { addSymbol, startAgain, addOutcome } from '../actions/actions';
 import { connect } from 'react-redux';
@@ -47,9 +48,9 @@ class Board extends Component {
         }
         {
           this.props.won || this.props.draw ?
-          <button className="startAgain" onClick={this.recordAndStartAgain}>
+          <StyledButton className="startAgain" onClick={this.recordAndStartAgain}>
             Click to start again!
-          </button> : false
+          </StyledButton> : false
         }
       </div>
     );

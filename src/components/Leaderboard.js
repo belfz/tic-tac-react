@@ -43,7 +43,9 @@ class Leaderboard extends React.Component {
         {this.getLeaderboard().map(player =>
           <LeaderboardItem score={player} key={player.player}/>)
         }
-        <ConfirmActionButton deleteLeaderboard={this.props.deleteLeaderboard}/>
+        { !!Object.keys(this.props.outcomes).length &&
+           <ConfirmActionButton deleteLeaderboard={this.props.deleteLeaderboard}/>
+        }
       </LeaderWrap>
     );
   }

@@ -15,9 +15,12 @@ const AppWrap = styled.div`
   font-family: Courier New, Courier, monospace;
 `;
 const BoardWrap = styled.main`
-  margin: 0 auto;
+  margin: 6vw auto;
   flex: 0 0 auto;
-  min-width: 200px;
+  min-width: 190px;
+  @media (max-width: 768px) {
+    order: -1;
+  }
 `;
 const App = ({className}) => {
   return (

@@ -14,7 +14,7 @@ class Result extends Component {
       result = `It's ${this.getPlayerName(this.props.turn)}'s turn.`;
     }
     if (this.props.won) {
-      result = `Yay! ${this.getPlayerName(this.props.won)} won!`
+      result = `Yay! ${this.getPlayerName(this.props.won)} won!`;
     } else if (this.props.draw) {
       result = 'We have a draw!';
     }

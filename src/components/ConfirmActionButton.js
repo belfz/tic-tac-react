@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import {StyledButton} from './StyledButton';
 
 class ConfirmActionButton extends React.Component {
   constructor(props) {
@@ -17,16 +17,13 @@ class ConfirmActionButton extends React.Component {
 
   render () {
     return (
-      <div>
-        { !this.state.clickedOnce
-          ? <button onClick={this.handleFirstClick}>Delete Leaderboard</button>
-          : <button
-              onClick={this.props.deleteLeaderboard}
-              style={{color: 'red'}}
-              >Really? Delete it?
-            </button>
-        }
-      </div>
+      !this.state.clickedOnce
+        ? <StyledButton onClick={this.handleFirstClick}>
+            Delete Leaderboard
+          </StyledButton>
+        : <StyledButton red={true} onClick={this.props.deleteLeaderboard}>
+            Really? Delete it?
+          </StyledButton>
     );
   }
 }

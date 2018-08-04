@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { beginGame } from '../actions/actions';
+import {StyledButton} from './StyledButton';
 
 const StyledForm = styled.form`
   min-width: 280px;
@@ -76,7 +77,7 @@ class PlayerForm extends React.Component {
           <StyledInput value={this.state.playerO} name="playerO" onChange={this.handleChange}/>
         </StyledLabel>
         {this.state.errorText ? <small style={{color: 'red'}}>{this.state.errorText}</small> : <small>&nbsp;</small>}
-        <button type="submit">Submit</button>
+        <StyledButton type="submit">Submit</StyledButton>
       </StyledForm>
     );
   }
