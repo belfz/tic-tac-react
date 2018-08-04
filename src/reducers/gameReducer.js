@@ -65,16 +65,10 @@ export const gameReducer = (state, action) => {
       newState.playerO = action.playerO;
       return newState;
     }
-    case 'GET_LEADERBOARD': {
-      return state;
-    }
     case 'RECEIVE_LEADERBOARD': {
       const newState = _.cloneDeep(state);
       newState.outcomes = action.data;
       return newState;
-    }
-    case 'DELETE_LEADERBOARD': {
-      return state;
     }
     case 'ADD_OUTCOME': {
       return state;

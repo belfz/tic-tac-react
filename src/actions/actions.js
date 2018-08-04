@@ -15,9 +15,15 @@ export const receiveLeaderboard = (leaderboard) => ({
   type: 'RECEIVE_LEADERBOARD',
   leaderboard
 });
-export const deleteLeaderboard = () => ({
-  type: 'DELETE_LEADERBOARD'
-});
+export const deleteLeaderboard = () => {
+  return (dispatch, getState) => {
+    return leaderboardApi.deleteAllOutcomes(getState().outcomes)
+    .then(
+      () => dispatch({type: 'RECEIVE_LEADERBOARD', data: []}),
+      error => console.error(error)
+    );
+  };
+};
 export const getLeaderboard = (filterParams) => {
   return (dispatch) => {
     return leaderboardApi.getOutcomes(filterParams)

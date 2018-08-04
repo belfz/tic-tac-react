@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { getLeaderboard } from '../actions/actions';
+import { getLeaderboard, deleteLeaderboard } from '../actions/actions';
+import ConfirmActionButton from './ConfirmActionButton';
 import LeaderboardItem from './LeaderboardItem';
 
 export const LeaderWrap = styled.div`
@@ -39,7 +40,10 @@ class Leaderboard extends React.Component {
     return (
       <LeaderWrap>
         <h4> &#9733; Leaderboard  &#9733;</h4>
-        {this.getLeaderboard().map(player => <LeaderboardItem score={player} />)}
+        {this.getLeaderboard().map(player =>
+          <LeaderboardItem score={player} key={player.player}/>)
+        }
+        <ConfirmActionButton deleteLeaderboard={this.props.deleteLeaderboard}/>
       </LeaderWrap>
     );
   }
@@ -65,7 +69,7 @@ const parseOutcomesByPlayer = (games) => {
 };
 
 Leaderboard.propTypes = {
-  outcomes: PropTypes.array.isRequired,
+  outcomes: PropTypes.object.isRequired,
 };
 
 export default connect(
@@ -74,6 +78,9 @@ export default connect(
     return {
       getLeaderboard() {
        dispatch(getLeaderboard());
+     },
+      deleteLeaderboard() {
+       dispatch(deleteLeaderboard());
      }
    };
  }
