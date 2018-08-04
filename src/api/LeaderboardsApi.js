@@ -11,28 +11,18 @@ class LeaderboardsApi {
       };
     }
     return axios.get(this.baseUrl, options)
-    .then(
-      res => res.data,
-      error => console.error(error)
-    );
+    .then( res => Promise.resolve(res.data) );
   }
 
   getOneOutcome = (id) => {
     return axios.get(`${this.baseUrl}\\${id}`)
-    .then(
-      res => res.data,
-      error => console.error(error)
-    );
+    .then( res => Promise.resolve(res.data) );
   }
   addOutcome = (outcome) => {
     if (!outcome || !outcome.player_x_name || !outcome.player_o_name) {
-      return console.error('Cannot add outcome: invalid data.');
+      throw new Error('Cannot add outcome: invalid data.');
     }
-    return axios.post(this.baseUrl, outcome)
-    .then(
-      res => res,
-      error => console.error(error)
-    );
+    return axios.post(this.baseUrl, outcome);
   }
 }
 
