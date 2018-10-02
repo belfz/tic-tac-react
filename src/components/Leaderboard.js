@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getLeaderboard, deleteLeaderboard } from '../actions/actions';
 import ConfirmActionButton from './ConfirmActionButton';
 import LeaderboardItem from './LeaderboardItem';
+import LeaderboardSortButtons from './LeaderboardSortButtons';
 
 export const LeaderWrap = styled.div`
   flex: 0 1 auto;
@@ -21,16 +22,43 @@ class Leaderboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // filter criteria?
+      sortBy: {
+        key: 'win',
+        order: -1, // -1 is ASC, 1 is DESC
+      }
     };
   }
-  getLeaderboard = (sortKey = 'win') => {
+
+  handleSort = (key) => {
+    const {sortBy} = this.state;
+    const order = sortBy.order === -1 && sortBy.key === key ? 1 : -1;
+
+    this.setState({sortBy: {
+      key,
+      order,
+    }});
+  };
+
+  getLeaderboard = () => {
+    const {sortBy} = this.state;
+
     const leaderboard = [];
     for (let player in this.props.outcomes) {
       const newOutcome = Object.assign({}, this.props.outcomes[player], {player});
       leaderboard.push(newOutcome);
     }
-    return leaderboard.sort( (a,b) => b[sortKey] - a[sortKey]);
+
+    return leaderboard.sort((a,b) => {
+      if (a[sortBy.key] < b[sortBy.key]) {
+        return sortBy.order;
+      }
+  
+      if (a[sortBy.key] > b[sortBy.key]) {
+        return -sortBy.order;
+      }
+  
+      return 0;
+    });
   };
 
   componentDidMount() {
@@ -40,6 +68,8 @@ class Leaderboard extends React.Component {
     return (
       <LeaderWrap>
         <h4> &#9733; Leaderboard  &#9733;</h4>
+          {/* {this.sortTypes.map(type => <li key={type} onClick={() => this.handleSort(type)}>{type}</li>)} */}
+        <LeaderboardSortButtons handleClick={this.handleSort} currentSort={this.state.sortBy} />
         {this.getLeaderboard().map(player =>
           <LeaderboardItem score={player} key={player.player}/>)
         }
