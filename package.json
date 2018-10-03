@@ -10,12 +10,14 @@
     "react-scripts": "1.0.17"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^2.3.3"
   },
   "scripts": {

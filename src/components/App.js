@@ -1,20 +1,38 @@
 import React from 'react';
-import Board from './Board';
-import Result from './Result';
 import styled from 'styled-components';
+
+import Board from './Board';
+import Leaderboard from './Leaderboard';
+import Result from './Result';
+import PlayerForm from './PlayerForm';
 import './App.css';
 
+const AppWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100vw;
+  font-family: Courier New, Courier, monospace;
+`;
+const BoardWrap = styled.main`
+  margin: 4vw auto;
+  flex: 0 0 auto;
+  min-width: 190px;
+  @media (max-width: 560px) {
+    order: -1;
+  }
+`;
 const App = ({className}) => {
   return (
-    <div className={className}>
-      <Result />
-      <Board />
-    </div>
+    <AppWrap>
+      <PlayerForm />
+      <BoardWrap className={className}>
+        <Result />
+        <Board />
+      </BoardWrap>
+      <Leaderboard />
+    </AppWrap>
   );
 }
 
-export default styled(App)`
-  font-family: Courier New, Courier, monospace;
-  margin: 0 auto;
-  width: 200px;
-`;
+export default App;

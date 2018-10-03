@@ -1,0 +1,36 @@
+
+.leaderboard-sort {
+    width: 8ch;
+    display: flex;
+    justify-content: space-around;
+    justify-content: space-evenly;
+  }
+
+.item-sort-button {
+    margin: 1px;
+    padding: 1px;
+    color: white;
+    text-align: center;
+    font-size: 1.8em;
+    opacity: .4;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.sort-active {
+    opacity: 1;
+}
+
+.sort-asc {
+    transform: translateY(-4px);
+}
+
+.sort-win {
+    color: #00b33c;
+}
+.sort-loss {
+    color: #c64839;
+}
+.sort-draw {
+    color: #fbcb6a;
+}

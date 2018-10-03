@@ -1,0 +1,37 @@
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px;
+}
+.leaderboard-name {
+  flex: 1 1 auto;
+  text-align: left;
+  margin: 2px;
+}
+.leaderboard-points {
+  width: 8ch;
+  display: flex;
+  justify-content: space-around;
+  justify-content: space-evenly;
+}
+.leaderboard-name,
+.item-score {
+  margin: 2px 3px;
+  padding: 2px 3px;
+}
+.item-score {
+  flex: 1 0 2ch;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+}
+.score-win {
+  background-color: #00b33c;
+}
+.score-loss {
+  background-color: #c64839;
+}
+.score-draw {
+  background-color: #fbcb6a;
+  color: #43300a;
+}
