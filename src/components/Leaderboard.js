@@ -64,16 +64,18 @@ class Leaderboard extends React.Component {
   componentDidMount() {
     this.props.getLeaderboard();
   }
+
   render() {
     return (
       <LeaderWrap>
         <h4> &#9733; Leaderboard  &#9733;</h4>
-          {/* {this.sortTypes.map(type => <li key={type} onClick={() => this.handleSort(type)}>{type}</li>)} */}
-        <LeaderboardSortButtons handleClick={this.handleSort} currentSort={this.state.sortBy} />
+        {!!Object.keys(this.props.outcomes).length &&
+          <LeaderboardSortButtons handleClick={this.handleSort} currentSort={this.state.sortBy} />
+        }
         {this.getLeaderboard().map(player =>
           <LeaderboardItem score={player} key={player.player}/>)
         }
-        { !!Object.keys(this.props.outcomes).length &&
+        {!!Object.keys(this.props.outcomes).length &&
            <ConfirmActionButton deleteLeaderboard={this.props.deleteLeaderboard}/>
         }
       </LeaderWrap>
