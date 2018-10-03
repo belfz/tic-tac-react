@@ -17,8 +17,12 @@
     opacity: .4;
 }
 
+.sort-active {
+    opacity: 1;
+}
+
 .sort-asc {
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateY(-4px);
 }
 
 .sort-win {
