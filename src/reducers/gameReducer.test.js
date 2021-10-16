@@ -1,5 +1,5 @@
-import { initialState, gameReducer } from './gameReducer';
-import { X, O } from '../symbols/symbols';
+import { initialState, gameReducer } from "./gameReducer"
+import { X, O } from "../symbols/symbols"
 
 it('Should add a symbol at given position and change turn', () => {
   const state = {
@@ -49,3 +49,54 @@ it('Should reset the state to initial', () => {
   const nextState = gameReducer(state, {type: 'START_AGAIN'});
   expect(nextState).toEqual(initialState);
 });
+
+// @ponicode
+describe("gameReducer.gameReducer", () => {
+    test("0", () => {
+        let callFunction = () => {
+            gameReducer.gameReducer("Alabama", { type: "ADD_SYMBOL" })
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("1", () => {
+        let callFunction = () => {
+            gameReducer.gameReducer({}, { type: "ADD_SYMBOL" })
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("2", () => {
+        let callFunction = () => {
+            gameReducer.gameReducer({}, { type: "string" })
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("3", () => {
+        let callFunction = () => {
+            gameReducer.gameReducer({}, { type: "object" })
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("4", () => {
+        let callFunction = () => {
+            gameReducer.gameReducer("Alabama", { type: "array" })
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("5", () => {
+        let callFunction = () => {
+            gameReducer.gameReducer(undefined, undefined)
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+})
